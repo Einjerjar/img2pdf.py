@@ -7,7 +7,7 @@ d = {'quality': 90, 'optimize': True}
 
 
 def genPDF(source, quality=90, optimize=True, out=None):
-    imgExts = ['jpg', 'jpeg', 'png']
+    imgExts = ['jpg', 'jpeg', 'png', 'webp']
     imgSources = []
 
     for i in imgExts:
