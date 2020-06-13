@@ -1,4 +1,4 @@
-from tkinter import Tk, Frame, StringVar, BooleanVar, Label, Entry, Button
+from tkinter import Tk, Frame, StringVar, BooleanVar, Label, Entry, Button, Checkbutton
 from img2Pdf import genPDF
 
 
@@ -27,29 +27,29 @@ class ITP(Frame):
         self.optimize = BooleanVar()
         self.optimize.set(True)
 
-        Label(self, text='Folder root').pack()
+        Label(self, text='Folder root:').grid(row=0, column=0)
         sf = Entry(self, textvariable=self.sourceFolder)
         sf.bind('<Return>', self.genPDF)
-        sf.pack()
+        sf.grid(row=0, column=1, columnspan=3, sticky='EW')
         sf.focus_set()
 
-        Label(self, text='Output folder [leave blank for auto]').pack()
+        Label(self, text='Output folder:').grid(row=1, column=0)
         of = Entry(self, textvariable=self.outFolder)
         of.bind('<Return>', self.genPDF)
-        of.pack()
+        of.grid(row=1, column=1, columnspan=3, sticky='EW')
 
-        Label(self, text='Quality').pack()
+        Label(self, text='Quality').grid(row=2, column=0)
         qf = Entry(self, textvariable=self.quality)
         qf.bind('<Return>', self.genPDF)
-        qf.pack()
+        qf.grid(row=2, column=1)
 
-        Label(self, text='Optimize').pack()
+        Label(self, text='Optimize').grid(row=2, column=2)
         pf = Checkbutton(self, variable=self.optimize)
-        pf.pack()
+        pf.grid(row=2, column=3)
 
         gb = Button(self, text='Generate', command=self.genPDF)
         gb.bind('<Return>', self.genPDF)
-        gb.pack()
+        gb.grid(row=1, column=0, columnspan=4, sticky='EW')
 
 
 root = Tk()
