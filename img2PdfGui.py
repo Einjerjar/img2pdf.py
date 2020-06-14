@@ -11,7 +11,7 @@ class ITP(Frame):
         self.out_folder = StringVar()
 
         self.quality = StringVar()
-        self.quality.set('90')
+        self.quality.set('80')
 
         self.optimize = BooleanVar()
         self.optimize.set(True)
@@ -36,7 +36,7 @@ class ITP(Frame):
 
     def init(self):
 
-        Label(self, text='Folder root:').grid(row=0, column=0)
+        Label(self, text='Folder root:').grid(row=0, column=0, sticky='E')
         sf = Entry(self, textvariable=self.source_folder)
         sf.bind('<Return>', self.gen_pdf)
         sf.grid(row=0, column=1, columnspan=2, sticky='EW')
@@ -44,19 +44,19 @@ class ITP(Frame):
 
         Button(self, text='...', command=self.get_source_dir).grid(row=0, column=3)
 
-        Label(self, text='Output folder:').grid(row=1, column=0)
+        Label(self, text='Output (same folder if empty):').grid(row=1, column=0, sticky='E')
         of = Entry(self, textvariable=self.out_folder)
         of.bind('<Return>', self.gen_pdf)
         of.grid(row=1, column=1, columnspan=2, sticky='EW')
 
         Button(self, text='...', command=self.get_out_file).grid(row=1, column=3)
 
-        Label(self, text='Quality').grid(row=2, column=0)
+        Label(self, text='Quality:').grid(row=2, column=0, sticky='E')
         qf = Entry(self, textvariable=self.quality)
         qf.bind('<Return>', self.gen_pdf)
         qf.grid(row=2, column=1)
 
-        Label(self, text='Optimize').grid(row=2, column=2)
+        Label(self, text='Optimize:').grid(row=2, column=2, sticky='E')
         pf = Checkbutton(self, variable=self.optimize)
         pf.grid(row=2, column=3)
 
