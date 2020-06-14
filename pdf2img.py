@@ -1,6 +1,7 @@
 import fitz
 
 from PIL import Image
+from util import s2b
 
 
 def parse_images(pdf_source, quality=80, optimize=True, output_folder='/', preferred_extension='jpg'):
@@ -40,4 +41,25 @@ def parse_images(pdf_source, quality=80, optimize=True, output_folder='/', prefe
 
 
 if __name__ == '__main__':
-    parse_images('outTest/asd.pdf', output_folder='imgSet/b', quality=10)
+    # * Only import if ran directly
+    import argparse
+
+    d = {'quality': 80, 'optimize': True, 'ext': 'jpg'}
+
+    parser = argparse.ArgumentParser(
+        description='Convert group of images to pdf')
+    parser.add_argument('source', type=str,
+                        help='the folder containing the images')
+    parser.add_argument('-o', '--out', metavar='PATH',
+                        default=None, help='the file to output to [default: [sourcedir]/[first_file_name].pdf]')
+    parser.add_argument('-q', '--quality', metavar='INT', type=int, default=d['quality'],
+                        help='the final output quality [default: {}]'.format(d['quality']))
+    parser.add_argument('-p', '--optimize', metavar='BOOL', type=s2b, default=d['optimize'],
+                        help='whether to try and optimize the images [default: {}]'.format(d['optimize']))
+    parser.add_argument('-e', '--extension', metavar='INT', type=int, default=d['quality'],
+                        help='preferred file extension'.format(d['ext']))
+
+    args = parser.parse_args()
+
+    # * Do magic
+    parse_images(args.source, args.quality, args.optimize, args.out, args.extension)

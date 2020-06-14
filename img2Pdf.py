@@ -2,11 +2,10 @@ import glob
 import os
 
 from PIL import Image
+from util import s2b
 
-d = {'quality': 90, 'optimize': True}
 
-
-def gen_pdf(source, quality=90, optimize=True, out=None):
+def gen_pdf(source, quality=80, optimize=True, out=None):
     # * Allowed file extensions
     img_exts = ['jpg', 'jpeg', 'png', 'webp', 'tiff']
     # * File list
@@ -59,20 +58,11 @@ def gen_pdf(source, quality=90, optimize=True, out=None):
     print('Saved pdf as [{}]'.format(out_file))
 
 
-def s2b(v, default=True):
-    """
-    Checks if a string can be converted to a boolean
-    """
-    if isinstance(v, bool):
-        return v
-    elif v.lower() in ['f', 'n', '0', 'false']:
-        return False
-    return default
-
-
 if __name__ == "__main__":
     # * Only import if ran directly
     import argparse
+
+    d = {'quality': 80, 'optimize': True}
 
     parser = argparse.ArgumentParser(
         description='Convert group of images to pdf')
