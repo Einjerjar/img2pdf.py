@@ -37,7 +37,6 @@ def parse_images(pdf_source, quality=80, optimize=True, output_folder='/', prefe
         a.save(o_name, quality=quality, optimize=optimize)
 
         print(' >Saved image to {}'.format(o_name))
-    pass
 
 
 if __name__ == '__main__':
