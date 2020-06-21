@@ -23,8 +23,8 @@ class ITP(Frame):
         o = self.out_folder.get()
         print(o, len(o))
         oo = None if len(o.strip()) == 0 else o
-        gen_pdf(self.source_folder.get(), int(
-            self.quality.get()), self.optimize.get(), oo)
+        gen_pdf(self.source_folder.get(), quality=int(
+            self.quality.get()), optimize=self.optimize.get(), out=oo)
 
     def get_source_dir(self):
         self.source_folder.set(filedialog.askdirectory(

@@ -78,4 +78,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # * Do magic
-    gen_pdf(args.source, args.quality, args.optimize, args.out)
+    gen_pdf(args.source, quality=args.quality, optomize=args.optimize, out=args.out)
