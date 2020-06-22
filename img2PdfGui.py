@@ -19,7 +19,7 @@ class ITP(Frame):
         self.init()
         self.pack()
 
-    def gen_pdf(self):
+    def l_gen_pdf(self, *args):
         o = self.out_folder.get()
         print(o, len(o))
         oo = None if len(o.strip()) == 0 else o
@@ -38,7 +38,7 @@ class ITP(Frame):
 
         Label(self, text='Folder root:').grid(row=0, column=0, sticky='E')
         sf = Entry(self, textvariable=self.source_folder)
-        sf.bind('<Return>', self.gen_pdf)
+        sf.bind('<Return>', self.l_gen_pdf)
         sf.grid(row=0, column=1, columnspan=2, sticky='EW')
         sf.focus_set()
 
@@ -46,22 +46,22 @@ class ITP(Frame):
 
         Label(self, text='Output (same folder if empty):').grid(row=1, column=0, sticky='E')
         of = Entry(self, textvariable=self.out_folder)
-        of.bind('<Return>', self.gen_pdf)
+        of.bind('<Return>', self.l_gen_pdf)
         of.grid(row=1, column=1, columnspan=2, sticky='EW')
 
         Button(self, text='...', command=self.get_out_file).grid(row=1, column=3)
 
         Label(self, text='Quality:').grid(row=2, column=0, sticky='E')
         qf = Entry(self, textvariable=self.quality)
-        qf.bind('<Return>', self.gen_pdf)
+        qf.bind('<Return>', self.l_gen_pdf)
         qf.grid(row=2, column=1)
 
         Label(self, text='Optimize:').grid(row=2, column=2, sticky='E')
         pf = Checkbutton(self, variable=self.optimize)
         pf.grid(row=2, column=3)
 
-        gb = Button(self, text='Generate', command=self.gen_pdf)
-        gb.bind('<Return>', self.gen_pdf)
+        gb = Button(self, text='Generate', command=self.l_gen_pdf)
+        gb.bind('<Return>', self.l_gen_pdf)
         gb.grid(row=3, column=0, columnspan=4, sticky='EW')
 
 
