@@ -11,6 +11,14 @@ def merge_pdf(i_dir='', o_dir=None):
     :return:
     """
 
+    files = None
+
+    # For future : so we can pass list of stuff instead of just folders
+    if type(i_dir) == 'list':
+        files = i_dir
+        if o_dir is None:
+            o_dir = 'merge_output.pdf'
+
     # Does tha magic for the output file
     if o_dir is None:
         o_dir = i_dir
@@ -24,7 +32,8 @@ def merge_pdf(i_dir='', o_dir=None):
     i_dir = path.join(i_dir, '*.pdf')
 
     # Get list of pdf files in dir
-    files = glob(i_dir)
+    if files is None:
+        files = glob(i_dir)
 
     # Create a PdfFileMerger Object
     merger = PdfFileMerger()
