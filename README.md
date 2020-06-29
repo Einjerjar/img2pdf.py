@@ -15,14 +15,16 @@ Likely Project name might be ```PewDF (lol)```
 ### TODO
 > Short term goals
 > * pdf2Img GUI
+>   * !!POSTPONED!! will finish all other short term goals
+then just do one unified GUI
 > * pdfMerger
->   * Allow merging of pdf files
+>   * [x] Allow merging of pdf files
 > * pdfArranger
->   * Allow rearrangement of pdf pages
+>   * [ ] Allow rearrangement of pdf pages
 > * pdfInsert
->   * Allow adding of pages to pdf
+>   * [ ] Allow adding of pages to pdf
 > * pdfSplitter
->   * Allow sectioning of pdf files
+>   * [ ] Allow sectioning of pdf files
 >
 > Long term goals
-> * Single GUI to facilitate all functions
+> * Single GUI to facilitate all functions (to rule 'em all, lol)
