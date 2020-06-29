@@ -15,7 +15,7 @@ Likely Project name might be ```PewDF (lol)```
 ### TODO
 > Short term goals
 > * pdf2Img GUI
->   * !!POSTPONED!! will finish all other short term goals
+>   * !! POSTPONED !! :: will finish all other short term goals
 then just do one unified GUI
 > * pdfMerger
 >   * [x] Allow merging of pdf files

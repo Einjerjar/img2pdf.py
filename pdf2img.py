@@ -46,16 +46,16 @@ if __name__ == '__main__':
     d = {'quality': 80, 'optimize': True, 'ext': 'jpg'}
 
     parser = argparse.ArgumentParser(
-        description='Convert group of images to pdf')
+        description='Convert pdf pages to images')
     parser.add_argument('source', type=str,
-                        help='the folder containing the images')
+                        help='the source pdf file')
     parser.add_argument('-o', '--out', metavar='PATH',
-                        default=None, help='the file to output to [default: [sourcedir]/[first_file_name].pdf]')
+                        default=None, help='the folder to output to [default: this_folder/####.jpg]')
     parser.add_argument('-q', '--quality', metavar='INT', type=int, default=d['quality'],
-                        help='the final output quality [default: {}]'.format(d['quality']))
+                        help='the image output quality [default: {}]'.format(d['quality']))
     parser.add_argument('-p', '--optimize', metavar='BOOL', type=s2b, default=d['optimize'],
                         help='whether to try and optimize the images [default: {}]'.format(d['optimize']))
-    parser.add_argument('-e', '--extension', metavar='INT', type=int, default=d['quality'],
+    parser.add_argument('-e', '--extension', metavar='EXT', type=int, default=d['quality'],
                         help='preferred file extension'.format(d['ext']))
 
     args = parser.parse_args()
